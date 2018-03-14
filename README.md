@@ -5,10 +5,17 @@ AdaptiveTyping
 adjust its safe area insets in response to the iOS Keyboard appearing, disappearing,
 and resizing.
 
+To use it, simply instantiate `KeyboardSafeAreaController` with a view controller
+whose safe-area you want protected from the keyboard, and present that instance
+as you would any other view controller. Voila! your view controller's safe-area
+will resize whenever the keyboard appears, disappears, or changes in size.
+
 ```swift
 import AdaptiveTyping
 import PlaygroundSupport
 import UIKit
+
+PlaygroundPage.current.liveView = KeyboardSafeAreaController(rootViewController: ViewController())
 
 class ViewController: UIViewController {
     var field: UITextField!
@@ -37,6 +44,4 @@ class ViewController: UIViewController {
         field.resignFirstResponder()
     }
 }
-
-PlaygroundPage.current.liveView = KeyboardSafeAreaController(rootViewController: ViewController())
 ```
